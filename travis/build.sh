@@ -11,10 +11,20 @@ cd $CHECKOUT_PATH
 
 if [ ! -d $ROOT_PATH/build ]; then mkdir $ROOT_PATH/build; fi
 cd $ROOT_PATH/build
-cmake $CHECKOUT_PATH -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_VERBOSE_MAKEFILE=ON -DExecutionGraph_BUILD_GUI=${BUILD_GUI}
+cmake $CHECKOUT_PATH -DCMAKE_BUILD_TYPE="$BUILD_TYPE" \
+      -DCMAKE_VERBOSE_MAKEFILE="ON" \
+      -DExecutionGraph_BUILD_GUI="${BUILD_GUI}" \
+      -DExecutionGraph_BUILD_TESTS="ON" \
+      -DExecutionGraph_EXTERNAL_BUILD_DIR_POSTFIX="$ROOT_PATH/buildExternal" \
+      -DExecutionGraph_USE_ADDRESS_SANITIZER="ON"
 make
-cmake $CHECKOUT_PATH -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_VERBOSE_MAKEFILE=ON -DExecutionGraph_BUILD_GUI=${BUILD_GUI}
-make install
+cmake $CHECKOUT_PATH -DCMAKE_BUILD_TYPE="$BUILD_TYPE" \
+      -DCMAKE_VERBOSE_MAKEFILE="ON" \
+      -DExecutionGraph_BUILD_GUI="${BUILD_GUI}" \
+      -DExecutionGraph_BUILD_TESTS="ON" \
+      -DExecutionGraph_EXTERNAL_BUILD_DIR_POSTFIX="$ROOT_PATH/buildExternal" \
+      -DExecutionGraph_USE_ADDRESS_SANITIZER="ON"
+make
 cd $ROOT_PATH
 
 # make install and library usage!
