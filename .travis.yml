@@ -7,14 +7,6 @@ matrix:
   - env: CLANG_VERSION=7.0
     os: linux
     dist: xenial
-    addons:
-      apt:
-        sources:
-          - ubuntu-toolchain-r-test
-          - llvm-toolchain-xenial
-        packages:
-          - cmake
-          - clang-7.0
 
 # Install dependencies
 install:
