@@ -4,15 +4,15 @@ language: cpp
 matrix:
   include:
 
-  - env: CLANG_VERSION=5.0
+  - env: CLANG_VERSION=7.0
     os: linux
     dist: xenial
     addons:
       apt:
         sources:
-          - llvm-toolchain-trusty-5.0
+          - llvm-toolchain-xenial
         packages:
-          - clang-5.0
+          - clang-7.0
 
 # Install dependencies
 install:
